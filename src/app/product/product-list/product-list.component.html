@@ -1,0 +1,30 @@
+<app-menu></app-menu>
+<div>
+    <span><h3>Product List</h3></span>
+    <span><a routerLink="/products/create">Create new product</a></span> | 
+    <span><input [(ngModel)]="searchCriteria" type="text" placeholder="Search"></span>
+</div>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Part #</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Unit</th>
+        <th>Photopath</th>
+        <th>Vendor</th>
+    </tr>
+    <tr *ngFor="let product of products | searchProduct:searchCriteria">
+        <td>{{product.id}}</td>
+        <td>{{product.partNbr}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.unit}}</td>
+        <td>{{product.photoPath}}</td>
+        <td>{{product.vendor.name}}</td>
+        <td>
+            <a routerLink="/products/detail/{{product.id}}">Detail</a> | 
+            <a routerLink="/products/edit/{{product.id}}">Edit</a>
+        </td>
+    </tr>
+</table>

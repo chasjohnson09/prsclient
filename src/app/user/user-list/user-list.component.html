@@ -1,0 +1,30 @@
+<app-menu></app-menu>
+<div>
+    <span><h3>User List</h3></span>
+    <span><a routerLink="/users/create">Create new user</a></span> | 
+    <span><input [(ngModel)]="serachCriteria" type="text" placeholder="Search"></span>
+</div>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th> Full Name</th>
+        <th> Phone #</th>
+        <th>Email</th>
+        <th>Reviewer</th>
+        <th>Admin</th>
+    </tr>
+    <tr *ngFor="let user of users | searchUser:serachCriteria">
+        <td>{{user.id}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.firstname}} {{user.lastname}}</td>
+        <td>{{user.phoneNumber}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.isReviewer | boolDisplay}}</td>
+        <td>{{user.isAdmin | boolDisplay}}</td>
+        <td>
+            <a routerLink="/users/detail/{{user.id}}">Detail</a> | 
+            <a routerLink="/user/edit/{{user.id}}">Edit</a>
+        </td>
+    </tr>
+</table>
