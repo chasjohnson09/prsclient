@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { SystemService } from "../misc/system.service";
 import { Request } from './request.class';
 
 
@@ -9,10 +10,11 @@ import { Request } from './request.class';
 })
 export class RequestService {
 
-    baseurl: string = 'http://localhost:54653/api/requests'
+    baseurl: string = 'http://localhost:22222/api/requests'
 
     constructor(
-        private http: HttpClient
+        private http: HttpClient,
+        private sys: SystemService
     ) {}
 
     list(): Observable<Request[]>{

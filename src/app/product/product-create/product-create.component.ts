@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Vendor } from 'src/app/vendor/vendor.class';
 import { Product } from '../product.class';
 import { ProductService } from '../product.service';
 
@@ -11,6 +12,7 @@ import { ProductService } from '../product.service';
 export class ProductCreateComponent implements OnInit {
 
   product: Product = new Product();
+  vendor: Vendor[] = [];
 
   constructor(
     private prdsvc: ProductService,

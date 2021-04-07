@@ -2,6 +2,8 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Product } from "./product.class";
 import { HttpClient } from "@angular/common/http";
+import { Vendor } from "../vendor/vendor.class";
+import { SystemService } from "../misc/system.service";
 
 
 @Injectable({
@@ -9,11 +11,16 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ProductService {
 
-    baseurl: string = 'http://localhost:54653/api/products'
+    baseurl: string = 'http://localhost:22222/api/products'
 
     constructor(
-        private http: HttpClient
+        private http: HttpClient,
+        private sys: SystemService
     ) {}
+
+    venlist(): Observable<Vendor[]>{
+        return this.http.get('http://localhost:22222/api/vendors') as Observable<Vendor[]>
+    }
 
     list(): Observable<Product[]>{
         return this.http.get(this.baseurl) as Observable<Product[]>

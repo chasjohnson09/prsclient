@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './user.class';
 import {HttpClient} from '@angular/common/http'
+import { SystemService } from '../misc/system.service';
 
 
 @Injectable({
@@ -9,12 +10,13 @@ import {HttpClient} from '@angular/common/http'
 })
 export class UserService {
 
-  baseurl:string = 'http://localhost:54653/api/users'
+  baseurl:string = 'http://localhost:22222/api/users'
   
   
   
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private sys: SystemService
   ) {}
 
   list(): Observable<User[]>{

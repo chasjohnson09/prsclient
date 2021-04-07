@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Vendor } from 'src/app/vendor/vendor.class';
 import { Product } from '../product.class';
 import { ProductService } from '../product.service';
 
@@ -11,12 +12,15 @@ import { ProductService } from '../product.service';
 export class ProductEditComponent implements OnInit {
 
   product: Product = null;
+  vendor: Vendor[] = [];
   
   constructor(
     private prdsvc: ProductService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
+
+  
 
   save(): void {
     console.log("B4 change", this.product);
@@ -37,6 +41,16 @@ export class ProductEditComponent implements OnInit {
       res => {
         console.log("Product:", res);
         this.product = res;
+      },
+      err => {
+        console.error(err);
+      }
+    );
+
+    this.prdsvc.venlist().subscribe(
+      res => {
+        console.log("Vendors:",res);
+        this.vendor = res as Vendor[];
       },
       err => {
         console.error(err);

@@ -43,6 +43,9 @@
         <tr>
             <th>Vendor</th>
             <td>
+                <select [(ngModel)]="vendors" name="vendors">
+                    <option *ngFor="let vendor of vendors" [value]="product.vendor.name">{{product.vendor.name}}</option>
+                </select>
                 <input [(ngModel)]="product.vendor.name" type="text" disabled>
             </td>
         </tr>
