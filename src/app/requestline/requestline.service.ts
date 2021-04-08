@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { SystemService } from "../misc/system.service";
+import { ProductService } from "../product/product.service";
 import { RequestLine } from './requestline.class'
 
 
@@ -15,9 +16,12 @@ export class RequestlineService {
     constructor(
         private http: HttpClient,
         private router: Router,
-        private sys: SystemService
+        private sys: SystemService,
+        private prdsvc: ProductService
     ){}
 
+    ngOnInit(): void {
 
+    } 
     
 }

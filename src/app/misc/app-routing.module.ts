@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from '../about/about.component';
-import { HelpComponent } from '../help/help.component';
 import { HomeComponent } from '../home/home.component';
 import { ProductCreateComponent } from '../product/product-create/product-create.component';
 import { ProductDetailComponent } from '../product/product-detail/product-detail.component';
@@ -11,6 +9,7 @@ import { RequestCreateComponent } from '../request/request-create/request-create
 import { RequestDetailComponent } from '../request/request-detail/request-detail.component';
 import { RequestEditComponent } from '../request/request-edit/request-edit.component';
 import { RequestListComponent } from '../request/request-list/request-list.component';
+import { RequestlineListComponent } from '../request/requestline-list/requestline-list.component';
 import { UserCreateComponent } from '../user/user-create/user-create.component';
 import { UserDetailComponent } from '../user/user-detail/user-detail.component';
 import { UserEditComponent } from '../user/user-edit/user-edit.component';
@@ -26,8 +25,6 @@ const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch:'full'},
 
   {path: 'home', component: HomeComponent },
-  {path: 'about', component: AboutComponent},
-  {path: 'help', component: HelpComponent},
 
   {path: 'users/list', component: UserListComponent},
   {path: 'users/create', component: UserCreateComponent},
@@ -46,6 +43,7 @@ const routes: Routes = [
   {path: 'requests/detail/:id', component: RequestDetailComponent},
   {path: 'requests/edit/:id', component: RequestEditComponent},
   {path: 'requests/create', component: RequestCreateComponent},
+  {path: 'requests/requestline/:id', component: RequestlineListComponent},
 
 
   { path: '**', component: HomeComponent }

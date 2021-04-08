@@ -26,6 +26,7 @@ export class UserLoginComponent implements OnInit {
         res => {
           console.log("User:", res, " is logged in.");
           this.sys.loggedInUser = res;
+          console.log(this.sys.loggedInUser)
           this.router.navigateByUrl("/users/list");
         },
         err => {

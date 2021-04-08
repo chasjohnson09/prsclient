@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Vendor } from 'src/app/vendor/vendor.class';
+import { VendorService } from 'src/app/vendor/vendor.service';
 import { Product } from '../product.class';
 import { ProductService } from '../product.service';
 
@@ -16,10 +17,12 @@ export class ProductCreateComponent implements OnInit {
 
   constructor(
     private prdsvc: ProductService,
-    private router: Router
+    private router: Router,
+    private vndsvc: VendorService
   ) { }
 
   save(): void {
+    this.product.vendorId = +this.product.vendorId;
     console.log("B4 create", this.product);
     this.prdsvc.create(this.product).subscribe(
       res => {
@@ -33,6 +36,25 @@ export class ProductCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.vndsvc.list().subscribe(
+      res => {
+        console.log("Vendors:", res);
+        this.vendor = res as Vendor[];
+      },
+      err => {
+        console.error(err)
+      }
+    );
+
+    this.prdsvc.venlist().subscribe(
+      res => {
+        console.log("Vendors:",res);
+        this.vendor = res as Vendor[];
+      },
+      err => {
+        console.error(err);
+      }
+    );
   }
 
 }

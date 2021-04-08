@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SystemService } from 'src/app/misc/system.service';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
 
@@ -13,11 +14,11 @@ export class UserListComponent implements OnInit {
   serachCriteria: string="";
 
   constructor(
-    private usrsvc: UserService
+    private usrsvc: UserService,
+    private sys: SystemService
   ) { }
 
   ngOnInit(): void {
-    
 
     this.usrsvc.list().subscribe(
       res => {

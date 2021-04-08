@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SystemService } from 'src/app/misc/system.service';
 import { Request } from '../request.class';
 import { RequestService } from '../request.service';
 
@@ -14,15 +15,17 @@ export class RequestCreateComponent implements OnInit {
 
   constructor(
     private reqsvc: RequestService,
-    private router: Router
+    private router: Router,
+    private sys: SystemService
   ) { }
 
   save(): void {
+    this.request.userId = +this.sys.loggedInUser.id;
     console.log("B4 create", this.request);
     this.reqsvc.create(this.request).subscribe(
       res => {
         console.log("Create Successful");
-        this.router.navigateByUrl("/requests/list");
+        this.router.navigateByUrl(`/requests/requestline/${this.request.id}`);
       },
       err => {
         console.error(err);
@@ -31,6 +34,7 @@ export class RequestCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
 
 }

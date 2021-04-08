@@ -1,7 +1,9 @@
 <app-menu></app-menu>
 <div>
     <div>
-        <span><h3>Product Create</h3></span>
+        <span>
+            <h3>Product Create</h3>
+        </span>
     </div>
     <table class="table table-sm" *ngIf="product">
         <tr>
@@ -13,43 +15,45 @@
         <tr>
             <th>Part #</th>
             <td>
-                <input [(ngModel)]="product.partNbr" type="text" >
+                <input [(ngModel)]="product.partNbr" type="text">
             </td>
         </tr>
         <tr>
             <th>Name</th>
             <td>
-                <input [(ngModel)]="product.name" type="text" >
+                <input [(ngModel)]="product.name" type="text">
             </td>
         </tr>
         <tr>
             <th>Price</th>
             <td>
-                <input [(ngModel)]="product.price" type="number" >
+                <input [(ngModel)]="product.price" type="number">
             </td>
         </tr>
         <tr>
             <th>Unit</th>
             <td>
-                <input [(ngModel)]="product.unit" type="text" >
+                <input [(ngModel)]="product.unit" type="text">
             </td>
         </tr>
         <tr>
             <th>Photo Path</th>
             <td>
-                <input [(ngModel)]="product.photoPath" type="text" >
+                <input [(ngModel)]="product.photoPath" type="text">
             </td>
         </tr>
         <tr>
             <th>Vendor</th>
             <td>
-                <input [(ngModel)]="product.vendor" type="text" >
+                <select [(ngModel)]="product.vendorId">
+                    <option *ngFor="let v of vendor" [value]="v.id">{{v.name}}</option>
+                </select>
             </td>
         </tr>
     </table>
     <div>
         <button (click)="save()" class="btn btn-success">Save</button>
-        
+
     </div>
 
 </div>

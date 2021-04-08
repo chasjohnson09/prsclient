@@ -29,9 +29,19 @@
             </td>
         </tr>
         <tr>
+            <th>Delivery Method</th>
+            <td>
+                <select [(ngModel)]="request.deliveryMode">
+                    <option value="Pickup">Pickup</option>
+                    <option value="Delivery">Delivery</option>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
             <th>User</th>
             <td>
-                <input [(ngModel)]="request.user" type="text">
+                <input [(ngModel)]="this.sys.loggedInUser.username" type="text" disabled>
             </td>
         </tr>
     </table>

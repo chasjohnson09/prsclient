@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SystemService } from 'src/app/misc/system.service';
+import { RequestlineService } from 'src/app/requestline/requestline.service';
 import { User } from 'src/app/user/user.class';
 import { RequestService } from '../request.service';
 
@@ -14,7 +16,9 @@ export class RequestListComponent implements OnInit {
   users: User[] = [];
 
   constructor(
-    private reqsvc: RequestService
+    private reqsvc: RequestService,
+    private sys: SystemService,
+    private reqlsvc: RequestlineService
   ) { }
 
   ngOnInit(): void {

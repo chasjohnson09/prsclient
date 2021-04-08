@@ -23,6 +23,9 @@ export class RequestService {
     get(id: number): Observable<Request> {
         return this.http.get(`${this.baseurl}/${id}`) as Observable<Request>;
     }
+    getreq(id: number): Observable<any> {
+        return this.http.get(`${this.baseurl}/requestline/${id}`);
+    }
     create(request: Request): Observable<Request>{
         return this.http.post(`${this.baseurl}`, request) as Observable<Request>;
     }
