@@ -28,7 +28,10 @@ import { SearchProductPipe } from '../search-pipes/search-product.pipe';
 import { SearchRequestPipe } from '../search-pipes/search-request.pipe';
 import { SearchVendorPipe } from '../search-pipes/search-vendor.pipe';
 import { RequestListComponent } from '../request/request-list/request-list.component';
-import { RequestlineListComponent } from '../request/requestline-list/requestline-list.component';
+import { RequestlineListComponent } from '../requestline/requestline-list/requestline-list.component';
+import { RequestReviewComponent } from '../request/request-review/request-review.component';
+import { RequestlineEditComponent } from '../requestline/requestline-edit/requestline-edit.component';
+import { RequestlineCreateComponent } from '../requestline/requestline-create/requestline-create.component';
 
 
 
@@ -60,7 +63,11 @@ import { RequestlineListComponent } from '../request/requestline-list/requestlin
     SearchProductPipe,
     SearchRequestPipe,
     SearchVendorPipe,
-    RequestlineListComponent
+    RequestlineListComponent,
+    RequestReviewComponent,
+    RequestlineEditComponent,
+    RequestlineCreateComponent,
+
   ],
   imports: [
     BrowserModule,

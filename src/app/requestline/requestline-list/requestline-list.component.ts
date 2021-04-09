@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SystemService } from 'src/app/misc/system.service';
-import { Request } from '../request.class';
-import { RequestService } from '../request.service';
+import { RequestService } from 'src/app/request/request.service';
+import { Request } from '../../request/request.class';
+import { RequestlineService } from '../requestline.service';
 
 @Component({
   selector: 'app-requestline-list',
@@ -14,10 +15,11 @@ export class RequestlineListComponent implements OnInit {
   request: Request = null;
 
   constructor(
-    private reqsvc: RequestService,
     private sys: SystemService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private reqlsvc: RequestlineService,
+    private reqsvc: RequestService
   ) { }
 
   review(): void {
@@ -25,8 +27,8 @@ export class RequestlineListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.request.id = this.route.snapshot.params.id;
-    this.reqsvc.getreq(+this.request.id).subscribe(
+    let id = this.route.snapshot.params.id;
+    this.reqsvc.get(+id).subscribe(
       res => {
         console.log("Request:", res);
         this.request = res;

@@ -48,7 +48,7 @@ export class ProductCreateComponent implements OnInit {
 
     this.prdsvc.venlist().subscribe(
       res => {
-        console.log("Vendors:",res);
+        console.log("Products:",res);
         this.vendor = res as Vendor[];
       },
       err => {

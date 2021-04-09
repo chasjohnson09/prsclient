@@ -1,5 +1,6 @@
 import { User } from "../user/user.class";
 import {SystemService } from "../misc/system.service"
+import { RequestLine } from "../requestline/requestline.class";
 
 export class Request {
     id: number = 0;
@@ -12,4 +13,5 @@ export class Request {
     userId: number = 0;
     user: User = null;
     userName: string = '';
+    requestlines: RequestLine[]= [];
 }
