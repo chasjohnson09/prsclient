@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SystemService } from 'src/app/misc/system.service';
 import { RequestService } from 'src/app/request/request.service';
 import { Request } from '../../request/request.class';
+import { RequestLine } from '../requestline.class';
 import { RequestlineService } from '../requestline.service';
 
 @Component({
@@ -26,7 +27,18 @@ export class RequestlineListComponent implements OnInit {
     this.router.navigateByUrl(`/requests/review/${this.request.id}`)
   }
 
-  ngOnInit(): void {
+  remove(line: RequestLine): void {
+    this.reqlsvc.remove(line).subscribe(
+      res => {
+        console.log("Line:", res);
+        this.refresh();
+      },
+      err => {
+        console.error(err);
+      }
+    );
+  }
+  refresh(): void {
     let id = this.route.snapshot.params.id;
     this.reqsvc.get(+id).subscribe(
       res => {
@@ -37,6 +49,9 @@ export class RequestlineListComponent implements OnInit {
         console.error(err);
       }
     );
+  }
+  ngOnInit(): void {
+    this.refresh();
   }
 
 }

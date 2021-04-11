@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, Observer } from "rxjs";
 import { SystemService } from "../misc/system.service";
 import { Request } from './request.class';
 
@@ -31,5 +31,11 @@ export class RequestService {
     }
     remove(request: Request): Observable<Request>{
         return this.http.delete(`${this.baseurl}/${request.id}`) as Observable<Request>;
+    }
+    reject(request: Request): Observable<Request>{
+        return this.http.put(`${this.baseurl}/Reject/${request.id}`, request) as Observable<Request>;
+    }
+    approve(request: Request): Observable<Request>{
+        return this.http.put(`${this.baseurl}/Approve/${request.id}`, request) as Observable<Request>;
     }
 }

@@ -12,7 +12,7 @@ import { Product } from '../product/product.class';
     providedIn: 'root'
 })
 export class RequestlineService {
-    baseurl: string = 'http://localhost:22222/api/requestlines'
+    baseurl: string = 'http://localhost:22222/api/requestLines'
 
     constructor(
         private http: HttpClient,
@@ -33,6 +33,9 @@ export class RequestlineService {
     }
     remove(requestline: RequestLine): Observable<RequestLine> {
         return this.http.delete(`${this.baseurl}/${requestline.id}`) as Observable<RequestLine>
+    }
+    create(requestline: RequestLine): Observable<RequestLine> {
+        return this.http.post(`${this.baseurl}`, requestline) as Observable<RequestLine>;
     }
 
 

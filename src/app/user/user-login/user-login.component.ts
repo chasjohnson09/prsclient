@@ -20,20 +20,25 @@ export class UserLoginComponent implements OnInit {
     private router: Router
   ) { }
 
-    login(): void {
-      console.log("B4 Login", this.user);
-      this.usrsvc.login(this.user.username, this.user.password).subscribe(
-        res => {
+  login(): void {
+    console.log("B4 Login", this.user);
+    this.usrsvc.login(this.user.username, this.user.password).subscribe(
+      res => {
+        if (res != null) {
           console.log("User:", res, " is logged in.");
           this.sys.loggedInUser = res;
           console.log(this.sys.loggedInUser)
           this.router.navigateByUrl("/users/list");
-        },
-        err => {
-          console.error(err);
         }
-      );
-    }
+        else{
+          window.alert("Username/password incorrect");
+        }
+      },
+      err => {
+        console.error(err);
+      }
+    );
+  }
 
   ngOnInit(): void {
     this.sys.loggedInUser = null;

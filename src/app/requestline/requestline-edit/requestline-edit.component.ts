@@ -27,7 +27,7 @@ export class RequestlineEditComponent implements OnInit {
     this.reqlsvc.change(this.requestline).subscribe(
       res => {
         console.log("Edit successful");
-        this.router.navigateByUrl("/request/requestlines/{{request.id}}");
+        this.router.navigateByUrl(`/requests/requestline/${this.requestline.requestId}`);
       },
       err => {
         console.error(err);

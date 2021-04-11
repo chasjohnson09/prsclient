@@ -9,18 +9,18 @@
         <th>User</th>
         <th>Action</th>
     </tr>
-    <tr>
+    <tr *ngIf="request">
         <td>{{request.id}}</td>
         <td>{{request.description}}</td>
         <td>{{request.justification}}</td>
         <td>{{request.status}}</td>
-        <td>{{request.total}}</td>
+        <td>{{request.total| currency}}</td>
         <td>{{request.user.username}}</td>
-        <td><a routeLink="/requests/review">Review</a></td>
+        <td><a routerLink="/requests/review/{{request.id}}">Review</a></td>
     </tr>
 </table>
-<a routerLink="/requestline/create/{{request.id}}">Create new line</a>
-<table>
+<a *ngIf="request" routerLink="/requestline/create/{{request.id}}">Create new line</a>
+<table *ngIf="request">
     <tr>
         <th>Id</th>
         <th>Name</th>
@@ -35,7 +35,7 @@
         <td>{{line.quantity}}</td>
         <td>
             <a routerLink="/requestline/edit/{{line.id}}">Edit</a> | 
-            <a routerLink="remove(id)">Delete</a>
+            <button class="btn btn-danger" (click)="remove(line)">Delete</button>
             
         </td>
     </tr>
