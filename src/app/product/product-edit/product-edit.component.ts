@@ -26,7 +26,7 @@ export class ProductEditComponent implements OnInit {
     console.log("B4 change", this.product);
     this.prdsvc.change(this.product).subscribe(
       res => {
-        console.log("Edit successful");
+        console.log("Edit successful", res);
         this.router.navigateByUrl("/products/list");
       },
       err => {

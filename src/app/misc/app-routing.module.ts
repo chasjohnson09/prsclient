@@ -25,7 +25,7 @@ import { VendorListComponent } from '../vendor/vendor-list/vendor-list.component
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch:'full'},
+  { path: '', redirectTo: 'login', pathMatch:'full'},
 
   {path: 'home', component: HomeComponent },
 
