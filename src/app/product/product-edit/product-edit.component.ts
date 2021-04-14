@@ -23,7 +23,9 @@ export class ProductEditComponent implements OnInit {
   
 
   save(): void {
+    this.product.vendorId = +this.product.vendorId;
     console.log("B4 change", this.product);
+    this.vendor = null;
     this.prdsvc.change(this.product).subscribe(
       res => {
         console.log("Edit successful", res);

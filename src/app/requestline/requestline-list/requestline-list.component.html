@@ -16,7 +16,7 @@
         <td>{{request.status}}</td>
         <td>{{request.total| currency}}</td>
         <td>{{request.user.username}}</td>
-        <td><a routerLink="/requests/review/{{request.id}}">Review</a></td>
+        <td><button class="btn btn-success" (click)="review(request)">Review</button></td>
     </tr>
 </table>
 <a *ngIf="request" routerLink="/requestline/create/{{request.id}}">Create new line</a>

@@ -14,7 +14,6 @@ export class RequestReviewComponent implements OnInit {
 
   request: Request = null;
   requestlines: RequestLine[] = [];
-  id: any;
   showVerifya: boolean = false;
   showVerifyj: boolean = false;
 

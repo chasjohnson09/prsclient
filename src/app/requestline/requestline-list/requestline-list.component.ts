@@ -23,9 +23,6 @@ export class RequestlineListComponent implements OnInit {
     private reqsvc: RequestService
   ) { }
 
-  review(): void {
-    this.router.navigateByUrl(`/requests/review/${this.request.id}`)
-  }
 
   remove(line: RequestLine): void {
     this.reqlsvc.remove(line).subscribe(
@@ -44,6 +41,19 @@ export class RequestlineListComponent implements OnInit {
       res => {
         console.log("Request:", res);
         this.request = res;
+      },
+      err => {
+        console.error(err);
+      }
+    );
+  }
+  setreview(request: Request): void {
+    let id = this.request.id;
+    this.request.status == "Review";
+    this.reqsvc.review(this.request).subscribe(
+      res => {
+        console.log("Request:", res);
+        this.router.navigateByUrl("requests/list");
       },
       err => {
         console.error(err);

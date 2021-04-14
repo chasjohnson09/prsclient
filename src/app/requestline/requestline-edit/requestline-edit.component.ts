@@ -23,6 +23,8 @@ export class RequestlineEditComponent implements OnInit {
   ) { }
   
   save(): void {
+    this.requestline.productId = +this.requestline.productId;
+    this.requestline.product = null;
     console.log("B4 change", this.requestline);
     this.reqlsvc.change(this.requestline).subscribe(
       res => {

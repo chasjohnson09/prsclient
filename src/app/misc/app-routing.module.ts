@@ -13,6 +13,7 @@ import { RequestReviewComponent } from '../request/request-review/request-review
 import { RequestlineCreateComponent } from '../requestline/requestline-create/requestline-create.component';
 import { RequestlineEditComponent } from '../requestline/requestline-edit/requestline-edit.component';
 import { RequestlineListComponent } from '../requestline/requestline-list/requestline-list.component';
+import { ReviewListComponent } from '../review/review-list/review-list.component';
 import { UserCreateComponent } from '../user/user-create/user-create.component';
 import { UserDetailComponent } from '../user/user-detail/user-detail.component';
 import { UserEditComponent } from '../user/user-edit/user-edit.component';
@@ -47,9 +48,10 @@ const routes: Routes = [
   {path: 'requests/edit/:id', component: RequestEditComponent},
   {path: 'requests/create', component: RequestCreateComponent},
   {path: 'requests/requestline/:id', component: RequestlineListComponent},
-  {path: 'requests/review/:id', component: RequestReviewComponent},
+  {path: 'review/detail/:id', component: RequestReviewComponent},
   {path: 'requestline/edit/:id', component: RequestlineEditComponent},
   {path: 'requestline/create/:id', component: RequestlineCreateComponent},
+  {path: 'reviews/list', component: ReviewListComponent},
 
   { path: '**', component: HomeComponent }
 ];

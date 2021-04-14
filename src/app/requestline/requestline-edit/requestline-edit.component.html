@@ -15,8 +15,8 @@
         <tr>
             <th>Product</th>
             <td>
-                <select [(ngModel)]="requestline.product.id">
-                    <option *ngFor="let p of products" [value]="p.id">{{p.name}}</option>
+                <select [(ngModel)]="requestline.productId">
+                    <option *ngFor="let p of products" value={{p.id}}>{{p.name}}</option>
                 </select>
             </td>
         </tr>
